@@ -24,6 +24,17 @@ export default class App extends Component{
         console.log(publicKey);
       });
   }
+  signIn(){
+    console.log('creating key');
+    let payload = '00';
+    console.log('payload:', payload);
+
+    Biometrics.createSignature('Sign in', payload)
+      .then((signature) => {
+        console.log(signature);
+        //verifySignatureWithServer(signature, payload);
+      });
+  }
 
   render() {
     console.log('the state:', this.state);
@@ -34,7 +45,10 @@ export default class App extends Component{
           style={styles.welcome}>Create Finger Print</Button> */}
         <Button
           onPress={this.createKey}
-          title="Press Me"/>
+          title="Create Biometric"/>
+        <Button
+          onPress={this.signIn}
+          title="Sign In"/>
       </View>
     );
   }
