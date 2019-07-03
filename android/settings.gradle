@@ -1,0 +1,3 @@
+rootProject.name = 'FingerCheck'
+
+include ':app'
